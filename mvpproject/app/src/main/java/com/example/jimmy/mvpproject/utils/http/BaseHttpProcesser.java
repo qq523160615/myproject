@@ -5,7 +5,6 @@ import android.util.Log;
 
 import com.example.jimmy.mvpproject.utils.core.BaseComponent;
 import com.example.jimmy.mvpproject.utils.core.ComponentEngine;
-import com.example.jimmy.mvpproject.utils.httputils.HttpClientResponse;
 
 import java.lang.reflect.Constructor;
 import java.util.Map;

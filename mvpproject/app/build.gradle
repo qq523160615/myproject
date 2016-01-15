@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 22
+    buildToolsVersion '22.0.0'
 
     defaultConfig {
         applicationId "com.example.jimmy.mvpproject"
@@ -21,7 +21,7 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:appcompat-v7:22.0.0'
     //网络请求
     compile 'com.squareup.okhttp:okhttp:2.4.0'
     compile 'com.squareup.okio:okio:1.5.0'
@@ -30,6 +30,5 @@ dependencies {
     //图片加载
     compile 'com.facebook.fresco:fresco:0.8.1'
     compile files('libs/fastjson-1.2.5.jar')
-
     compile 'org.bouncycastle:bcprov-jdk16:1.46'
 }
