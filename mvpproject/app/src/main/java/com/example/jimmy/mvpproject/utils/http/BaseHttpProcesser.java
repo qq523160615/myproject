@@ -1,10 +1,13 @@
 package com.example.jimmy.mvpproject.utils.http;
 
 
-
+import android.util.Log;
 
 import com.example.jimmy.mvpproject.utils.core.BaseComponent;
+import com.example.jimmy.mvpproject.utils.core.ComponentEngine;
+import com.example.jimmy.mvpproject.utils.httputils.HttpClientResponse;
 
+import java.lang.reflect.Constructor;
 import java.util.Map;
 
 /**
@@ -17,28 +20,28 @@ public abstract class BaseHttpProcesser extends BaseComponent
     private BaseHttpEngine baseHttpEngine;
     private String oldUrl;
 
-    private HttpResponse baseHttpResponse;
-    private com.example.jimmy.mvpproject.utils.http.HttpRequest baseHttpRequest;
+    private BaseHttpResponse baseHttpResponse;
+    private BaseHttpRequest baseHttpRequest;
 
     public void init(String baseUrl, String secretKey, boolean isLog, int timeOut)
     {
         setIsExtends(true);
-//        /**-------通过反射获取操作类对象*********/
-//        try
-//        {
-//            String str = ComponentEngine.getInstance(BaseHttpEngine.class).getClass().getName();
-//            Class<?> clazz = Class.forName(str);
-//            this.oldUrl = baseUrl;
-//            Constructor constructor = clazz.getConstructor(String.class, String.class, boolean.class, int.class);
-//            baseHttpEngine = (BaseHttpEngine) constructor.newInstance
-//                    (baseUrl, secretKey, isLog, timeOut);
-//        }
-//        catch (Exception e)
-//        {
-//            Log.e("HttpEngine", "Http处理类初始化错误，请检查配置文件！");
-//        }
-        baseHttpEngine = new HttpClientResponse(baseUrl,secretKey,isLog,timeOut);
+        /**-------通过反射获取操作类对象*********/
+        try
+        {
+            String str = ComponentEngine.getInstance(BaseHttpEngine.class).getClass().getName();
+//            String str = "com.example.jimmy.mvpproject.utils.http.HttpClientResponse";
+            Class<?> clazz = Class.forName(str);
+            this.oldUrl = baseUrl;
+            Constructor constructor = clazz.getConstructor(String.class, String.class, boolean.class, int.class);
+            baseHttpEngine = (BaseHttpEngine) constructor.newInstance
+                    (baseUrl, secretKey, isLog, timeOut);
+        } catch (Exception e)
+        {
+            Log.e("HttpEngine", "Http处理类初始化错误，请检查配置文件！");
+        }
 
+//        baseHttpEngine = new HttpClientResponse(baseUrl, secretKey, isLog, timeOut);
     }
 
     /**
@@ -53,11 +56,11 @@ public abstract class BaseHttpProcesser extends BaseComponent
     {
         if (baseHttpResponse == null)
         {
-            baseHttpResponse = new HttpResponse();
+            baseHttpResponse = new BaseHttpResponse();
         }
         if (baseHttpRequest == null)
         {
-            baseHttpRequest = new HttpRequest();
+            baseHttpRequest = new BaseHttpRequest();
         }
         return baseHttpEngine.request(serviceName, params, baseHttpResponse, baseHttpRequest);
     }
@@ -77,17 +80,17 @@ public abstract class BaseHttpProcesser extends BaseComponent
         return baseHttpResponse;
     }
 
-    public void setBaseHttpResponse(HttpResponse baseHttpResponse)
+    public void setBaseHttpResponse(BaseHttpResponse baseHttpResponse)
     {
         this.baseHttpResponse = baseHttpResponse;
     }
 
-    public HttpRequest getBaseHttpRequest()
+    public BaseHttpRequest getBaseHttpRequest()
     {
         return baseHttpRequest;
     }
 
-    public void setBaseHttpRequest(HttpRequest baseHttpRequest)
+    public void setBaseHttpRequest(BaseHttpRequest baseHttpRequest)
     {
         this.baseHttpRequest = baseHttpRequest;
     }

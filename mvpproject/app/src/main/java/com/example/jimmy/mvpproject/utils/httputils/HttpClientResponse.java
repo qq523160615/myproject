@@ -1,13 +1,20 @@
-package com.example.jimmy.mvpproject.utils.http;
+package com.example.jimmy.mvpproject.utils.httputils;
 
 import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 
 
+import com.alibaba.fastjson.parser.Feature;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.example.jimmy.mvpproject.utils.core.ComponentEngine;
 
 
+import com.example.jimmy.mvpproject.utils.http.BaseHttpEngine;
+import com.example.jimmy.mvpproject.utils.http.BaseHttpRequest;
+import com.example.jimmy.mvpproject.utils.http.BaseHttpResponse;
+import com.example.jimmy.mvpproject.utils.http.Encryptor;
+import com.example.jimmy.mvpproject.utils.http.FHttpException;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -60,11 +67,10 @@ public class HttpClientResponse extends BaseHttpEngine
      * @param baseHttpRequest  要返回的分装类
      */
     @Override
-    public HttpResponse request(String serviceName, Map<String, Object> params, HttpResponse baseHttpResponse, HttpRequest baseHttpRequest) throws FHttpException
+    public BaseHttpResponse request(String serviceName, Map<String, Object> params, BaseHttpResponse baseHttpResponse, BaseHttpRequest baseHttpRequest) throws FHttpException
     {
         Encryptor encryptor = (Encryptor) ComponentEngine.getInstance(Encryptor.class);
-        baseHttpRequest = getRequest(params, baseHttpRequest);
-
+        baseHttpRequest = this.getRequest(params, baseHttpRequest);
 
         String debugMessage = JSON.toJSONString(baseHttpRequest, true);
         if (isLog)
@@ -73,7 +79,7 @@ public class HttpClientResponse extends BaseHttpEngine
         }
 
 
-        byte[] jsonBytes = JSON.toJSONBytes(baseHttpRequest);
+        byte[] jsonBytes = JSON.toJSONBytes(baseHttpRequest, new SerializerFeature[0]);
         byte[] encodedBytes =
                 secretKey == null ? jsonBytes : encryptor.encode(jsonBytes, secretKey);
 
@@ -104,9 +110,8 @@ public class HttpClientResponse extends BaseHttpEngine
                     ));
                 }
 
-
                 //       baseHttpResponse = JSON.parseObject(responseBytes, baseHttpResponse.getClass());
-                baseHttpResponse = JSON.parseObject(responseString, HttpResponse.class);
+                baseHttpResponse = JSON.parseObject(responseString.getBytes(), baseHttpResponse.getClass(), new Feature[0]);
 
                 String debugMessageResponse = JSON.toJSONString(baseHttpResponse, true);
                 if (isLog)
@@ -121,7 +126,6 @@ public class HttpClientResponse extends BaseHttpEngine
 
         return baseHttpResponse;
     }
-
 
 
 }

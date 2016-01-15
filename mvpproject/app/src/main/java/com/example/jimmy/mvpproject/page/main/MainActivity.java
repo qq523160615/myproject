@@ -1,11 +1,12 @@
-package com.example.jimmy.mvpproject;
+package com.example.jimmy.mvpproject.page.main;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.TextView;
 
+import com.example.jimmy.mvpproject.R;
 import com.example.jimmy.mvpproject.model.Person;
+import com.example.jimmy.mvpproject.page.main.task.getPerson;
 import com.squareup.okhttp.MediaType;
 
 import butterknife.Bind;

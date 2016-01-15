@@ -1,23 +1,95 @@
 package com.example.jimmy.mvpproject.utils.http;
 
+
 import com.alibaba.fastjson.annotation.JSONField;
 
 import java.io.Serializable;
+import java.util.Map;
 
 /**
- * Response
+ * Request
  *
  * @author kutzhang@gmail.com
  */
 public class HttpRequest extends BaseHttpRequest implements Serializable
 {
+    // 操作系统
+    @JSONField(name = "os")
+    private String os;
+
+    // 操作系统版本
+    @JSONField(name = "os_version")
+    private String osVersion;
+
+    // 应用名
+    @JSONField(name = "app_name")
+    private String appName;
+
+    // 应用版本
+    @JSONField(name = "app_version")
+    private String appVersion;
+
+    // UDID
+    @JSONField(name = "udid")
+    private String udid;
+
     // 服务名
     @JSONField(name = "service")
     private String serviceName;
 
-    //accessToken
-    @JSONField(name="access_token")
-    private String accessToken;
+    // 参数
+    @JSONField(name = "params")
+    private Map<String, Object> params;
+
+    public String getOs()
+    {
+        return os;
+    }
+
+    public void setOs(String os)
+    {
+        this.os = os;
+    }
+
+    public String getOsVersion()
+    {
+        return osVersion;
+    }
+
+    public void setOsVersion(String osVersion)
+    {
+        this.osVersion = osVersion;
+    }
+
+    public String getAppName()
+    {
+        return appName;
+    }
+
+    public void setAppName(String appName)
+    {
+        this.appName = appName;
+    }
+
+    public String getAppVersion()
+    {
+        return appVersion;
+    }
+
+    public void setAppVersion(String appVersion)
+    {
+        this.appVersion = appVersion;
+    }
+
+    public String getUdid()
+    {
+        return udid;
+    }
+
+    public void setUdid(String udid)
+    {
+        this.udid = udid;
+    }
 
     public String getServiceName()
     {
@@ -29,13 +101,13 @@ public class HttpRequest extends BaseHttpRequest implements Serializable
         this.serviceName = serviceName;
     }
 
-    public String getAccessToken()
+    public Map<String, Object> getParams()
     {
-        return accessToken;
+        return params;
     }
 
-    public void setAccessToken(String accessToken)
+    public void setParams(Map<String, Object> params)
     {
-        this.accessToken = accessToken;
+        this.params = params;
     }
 }
