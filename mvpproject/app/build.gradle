@@ -31,4 +31,6 @@ dependencies {
     compile 'com.facebook.fresco:fresco:0.8.1'
     compile files('libs/fastjson-1.2.5.jar')
     compile 'org.bouncycastle:bcprov-jdk16:1.46'
+
+    compile 'io.reactivex:rxjava:1.0.14'
 }
