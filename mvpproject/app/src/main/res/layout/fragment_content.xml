@@ -4,16 +4,12 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="内容"
-        />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/ic_launcher"
-        />
+    <com.example.jimmy.mvpproject.widget.SwipeRefresh.SwipeRefreshListView
+        android:id="@+id/slv_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="@dimen/dimens_10"
+        android:padding="@dimen/dimens_10"/>
 
 </LinearLayout>

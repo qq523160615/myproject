@@ -24,4 +24,9 @@
     <color name="list_selector">#E0E0E0</color>
 
     <color name="col_36353b">#36353b</color>
+
+    <color name="myproject_tips">#808080</color>
+
+    <!--上拉刷新-->
+    <color name="refresh_text">#67a1f9</color>
 </resources>

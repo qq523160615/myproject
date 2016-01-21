@@ -96,6 +96,7 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
             {
                 selected = position;
                 Log.e("position", position + "");
+                vgContent.setCurrentItem(position,false);
                 hlAdapter.notifyDataSetChanged();
             }
         });
