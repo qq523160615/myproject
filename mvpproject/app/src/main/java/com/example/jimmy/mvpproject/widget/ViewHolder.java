@@ -1,6 +1,7 @@
 package com.example.jimmy.mvpproject.widget;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.util.SparseArray;
@@ -73,6 +74,15 @@ public class ViewHolder
         return this;
     }
 
+
+    public ViewHolder setBackgroundColor(int viewId, int drawableId)
+    {
+        ImageView view = getView(viewId);
+        view.setBackgroundColor(drawableId);
+
+        return this;
+    }
+
     public ViewHolder setImageBitmap(int viewId, Bitmap bitmap)
     {
         ImageView view = getView(viewId);
@@ -86,6 +96,13 @@ public class ViewHolder
         SimpleDraweeView view = getView(viewId);
         view.setImageURI(Uri.parse(url));
 
+        return this;
+    }
+
+    public ViewHolder setClickListener(int viewId, View.OnClickListener clickListener)
+    {
+        View view = getView(viewId);
+        view.setOnClickListener(clickListener);
         return this;
     }
 

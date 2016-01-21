@@ -1,5 +1,6 @@
 package com.example.jimmy.mvpproject.page.main.fragment;
 
+
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,8 +9,14 @@ import android.view.ViewGroup;
 
 import com.example.jimmy.mvpproject.R;
 
+import butterknife.ButterKnife;
+
+
 /**
- * Created by jimmy on 16/1/15.
+ *
+ * 进吧
+ *
+ * @author Jimmy
  */
 public class ForumFragment extends Fragment
 {
@@ -17,6 +24,14 @@ public class ForumFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View view = inflater.inflate(R.layout.fragment_forum, container, false);
+        ButterKnife.bind(this, view);
         return view;
+    }
+
+    @Override
+    public void onDestroyView()
+    {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
     }
 }

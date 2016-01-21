@@ -3,6 +3,7 @@ package com.example.jimmy.mvpproject.model;
 import com.alibaba.fastjson.annotation.JSONField;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -13,6 +14,8 @@ public class Person implements Serializable
     private String name;
 
     private int age;
+
+    private List<Course> courseList;
 
     public String getName()
     {
@@ -32,6 +35,16 @@ public class Person implements Serializable
     public void setAge(int age)
     {
         this.age = age;
+    }
+
+    public void setCourseList(List<Course> courseList)
+    {
+        this.courseList = courseList;
+    }
+
+    public List<Course> getCourseList()
+    {
+        return courseList;
     }
 
     public static Person generateByJson(Map<String,Object> json)

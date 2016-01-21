@@ -1,18 +1,18 @@
 package com.example.jimmy.mvpproject.page.main;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.example.jimmy.mvpproject.R;
 import com.example.jimmy.mvpproject.page.main.fragment.ForumFragment;
-import com.example.jimmy.mvpproject.page.main.fragment.HomeFragment;
+import com.example.jimmy.mvpproject.page.main.fragment.home.HomeFragment;
 import com.example.jimmy.mvpproject.page.main.fragment.MessageFragment;
 import com.example.jimmy.mvpproject.page.main.fragment.MineFragment;
 
@@ -20,7 +20,12 @@ import com.example.jimmy.mvpproject.page.main.fragment.MineFragment;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends Activity implements View.OnClickListener
+/**
+ * 主界面
+ *
+ * @author Jimmy
+ */
+public class MainActivity extends FragmentActivity implements View.OnClickListener
 {
     @Bind(R.id.fl_home)
     FrameLayout flHome;
@@ -36,6 +41,8 @@ public class MainActivity extends Activity implements View.OnClickListener
 
     @Bind(R.id.ll_mine)
     LinearLayout llMine;
+
+    public static android.support.v4.app.FragmentManager fm;
 
     //加载fragment用
     private FragmentManager fragmentManager;
@@ -55,7 +62,6 @@ public class MainActivity extends Activity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
         init();
     }
 
@@ -65,6 +71,8 @@ public class MainActivity extends Activity implements View.OnClickListener
      */
     private void init()
     {
+        fm = getSupportFragmentManager();
+
         selectedOne(true, false, false, false);
 
         //加载邮箱默认布局

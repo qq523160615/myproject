@@ -29,7 +29,6 @@ public abstract class BaseHttpProcesser extends BaseComponent
         try
         {
             String str = ComponentEngine.getInstance(BaseHttpEngine.class).getClass().getName();
-//            String str = "com.example.jimmy.mvpproject.utils.http.HttpClientResponse";
             Class<?> clazz = Class.forName(str);
             this.oldUrl = baseUrl;
             Constructor constructor = clazz.getConstructor(String.class, String.class, boolean.class, int.class);
@@ -39,8 +38,6 @@ public abstract class BaseHttpProcesser extends BaseComponent
         {
             Log.e("HttpEngine", "Http处理类初始化错误，请检查配置文件！");
         }
-
-//        baseHttpEngine = new HttpClientResponse(baseUrl, secretKey, isLog, timeOut);
     }
 
     /**

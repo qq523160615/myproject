@@ -29,7 +29,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * HttpClient网络请求操作类
  *
- * @author Devin
+ * @author Jimmy
  */
 public class HttpClientResponse extends BaseHttpEngine
 {

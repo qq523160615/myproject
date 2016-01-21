@@ -8,8 +8,11 @@ import android.view.ViewGroup;
 
 import com.example.jimmy.mvpproject.R;
 
+
 /**
- * Created by jimmy on 16/1/15.
+ * 我的
+ *
+ * @author Jimmy
  */
 public class MineFragment extends Fragment
 {
@@ -17,6 +20,7 @@ public class MineFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View view = inflater.inflate(R.layout.fragment_mine, container, false);
+
         return view;
     }
 }

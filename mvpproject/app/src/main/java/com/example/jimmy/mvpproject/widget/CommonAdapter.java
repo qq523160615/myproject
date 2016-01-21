@@ -9,7 +9,9 @@ import android.widget.BaseAdapter;
 import java.util.List;
 
 /**
- * Created by jimmy on 16/1/19.
+ * 通用适配器
+ *
+ * @author Jimmy
  */
 public abstract class CommonAdapter<T> extends BaseAdapter
 {
@@ -48,11 +50,11 @@ public abstract class CommonAdapter<T> extends BaseAdapter
     public View getView(int position, View convertView, ViewGroup parent)
     {
         final ViewHolder viewHolder = getViewHolder(position,convertView,parent);
-        convert(viewHolder,getItem(position));
+        convert(viewHolder,getItem(position),position);
         return viewHolder.getConvertView();
     }
 
-    public abstract void convert(ViewHolder holder,T item);
+    public abstract void convert(ViewHolder holder,T item,int position);
 
     private ViewHolder getViewHolder(int position,View convertView,ViewGroup parent)
     {

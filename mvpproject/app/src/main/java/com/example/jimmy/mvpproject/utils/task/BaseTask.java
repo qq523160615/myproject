@@ -10,7 +10,7 @@ import com.example.jimmy.mvpproject.widget.ToastHelper;
 /**
  * Base Task
  *
- * @author deVin
+ * @author Jimmy
  */
 public abstract class BaseTask extends AsyncTask<Void, Void, BaseTask.TaskResult>
 {
