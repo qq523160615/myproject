@@ -8,6 +8,7 @@ import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -63,6 +64,20 @@ public class ViewHolder
     {
         TextView view = getView(viewId);
         view.setText(text);
+        return this;
+    }
+
+    public ViewHolder setButtonText(int viewId, String text)
+    {
+        Button view = getView(viewId);
+        view.setText(text);
+        return this;
+    }
+
+    public ViewHolder setButtonOnclikable(int viewId, Boolean isClikable)
+    {
+        Button view = getView(viewId);
+        view.setClickable(isClikable);
         return this;
     }
 
