@@ -8,7 +8,7 @@ import com.example.jimmy.mvpproject.utils.core.ComponentEngine;
 /**
  * Base Application
  *
- * @author kutzhang@gmail.com
+ * @author Jimmy
  */
 public abstract class BaseApplication extends Application
 {

@@ -1,7 +1,11 @@
 package com.example.jimmy.mvpproject.app;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 /**
- * Created by jimmy on 16/1/14.
+ * application初始化
+ *
+ * @author Jimmy
  */
 public class App extends BaseApplication
 {
@@ -9,5 +13,6 @@ public class App extends BaseApplication
     public void onCreate()
     {
         super.onCreate();
+        Fresco.initialize(this);
     }
 }

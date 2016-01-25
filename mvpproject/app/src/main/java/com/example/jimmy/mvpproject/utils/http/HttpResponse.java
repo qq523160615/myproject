@@ -12,6 +12,12 @@ import java.util.Map;
  */
 public class HttpResponse extends BaseHttpResponse implements Serializable
 {
+    // 成功状态
+    public static final int STATUS_SUCCESS = 200;
+
+    // 失败状态
+    public static final int STATUS_FAILURE = 1;
+
     // 应答状态
     @JSONField(name = "code")
     private int status;

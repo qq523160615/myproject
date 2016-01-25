@@ -2,7 +2,6 @@ package com.example.jimmy.mvpproject.utils.http;
 
 
 
-
 import com.example.jimmy.mvpproject.utils.core.BaseComponent;
 
 import java.io.UnsupportedEncodingException;

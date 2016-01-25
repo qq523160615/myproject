@@ -4,8 +4,6 @@ package com.example.jimmy.mvpproject.utils.http;
 
 import com.example.jimmy.mvpproject.utils.core.BaseComponent;
 import com.example.jimmy.mvpproject.utils.core.ComponentEngine;
-import com.example.jimmy.mvpproject.utils.httputils.*;
-
 
 import java.util.Map;
 
@@ -52,7 +50,7 @@ public abstract class BaseHttpEngine extends BaseComponent
      * @param baseHttpRequest 要返回的格式
      * @return 分装类
      */
-    protected HttpRequest getRequest(Map<String, Object> params,HttpRequest baseHttpRequest)
+    protected BaseHttpRequest getRequest(Map<String, Object> params,BaseHttpRequest baseHttpRequest)
     {
         Environment environment = (Environment) ComponentEngine.getInstance(Environment.class);
         baseHttpRequest.setOs(environment.getOs());
@@ -72,7 +70,7 @@ public abstract class BaseHttpEngine extends BaseComponent
      * @param baseHttpResponse 要发送的分装类
      * @param baseHttpRequest 要返回的分装类
      */
-    public abstract HttpResponse request(String serviceName, Map<String, Object> params,HttpResponse baseHttpResponse, HttpRequest baseHttpRequest) throws FHttpException;
+    public abstract BaseHttpResponse request(String serviceName, Map<String, Object> params,BaseHttpResponse baseHttpResponse,BaseHttpRequest baseHttpRequest) throws FHttpException;
 
     public String getSecretKey()
     {

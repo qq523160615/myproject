@@ -59,7 +59,7 @@ public class ComponentEngine implements Serializable
             while (n.hasMoreElements())
             {
                 String className = n.nextElement().toString();
-                if (className.indexOf("com.flinkinfo.aar") != -1)
+                if (className.indexOf("com.example.jimmy.mvpproject.utils.httputils") != -1)
                 {
                     Class clazz = Class.forName(className); //b
 
