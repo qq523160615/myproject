@@ -8,55 +8,67 @@ import android.widget.Scroller;
 /**
  * 滑动删除linearlayout
  */
-public class ScrollLinerLayout extends LinearLayout {
+public class ScrollLinerLayout extends LinearLayout
+{
 
-	public ScrollLinerLayout(Context context, AttributeSet attrs) {
-		super(context, attrs);
-		init(context);
-	}
+    public ScrollLinerLayout(Context context, AttributeSet attrs)
+    {
+        super(context, attrs);
+        init(context);
+    }
 
-	private void init(Context context) {
-		mScroller = new Scroller(context);
-	}
+    private void init(Context context)
+    {
+        mScroller = new Scroller(context);
+    }
 
-	private Scroller mScroller;
-	private boolean pressed = true;
+    private Scroller mScroller;
+    private boolean pressed = true;
 
-	public void onDown() {
-		if (!mScroller.isFinished()) {
-			mScroller.abortAnimation();
-		}
-	}
+    public void onDown()
+    {
+        if (!mScroller.isFinished())
+        {
+            mScroller.abortAnimation();
+        }
+    }
 
-	@Override
-	public void setPressed(boolean pressed) {
-		if (this.pressed)
-			super.setPressed(pressed);
-		else{
-			super.setPressed(this.pressed);
-		}
-	}
+    @Override
+    public void setPressed(boolean pressed)
+    {
+        if (this.pressed)
+            super.setPressed(pressed);
+        else
+        {
+            super.setPressed(this.pressed);
+        }
+    }
 
-	public void setSingleTapUp(boolean pressed) {
-		this.pressed = pressed;
-	}
+    public void setSingleTapUp(boolean pressed)
+    {
+        this.pressed = pressed;
+    }
 
-	@Override
-	public void computeScroll() {
-		if (mScroller.computeScrollOffset()) {
-			scrollTo(mScroller.getCurrX(), 0);
-			postInvalidate();
-		}
-	}
+    @Override
+    public void computeScroll()
+    {
+        if (mScroller.computeScrollOffset())
+        {
+            scrollTo(mScroller.getCurrX(), 0);
+            postInvalidate();
+        }
+    }
 
-	public int getToX() {
-		return mScroller.getCurrX();
-	}
+    public int getToX()
+    {
+        return mScroller.getCurrX();
+    }
 
-	public void snapToScreen(int whichScreen) {
-		mScroller.startScroll(whichScreen, 0, 0, 0, 50);
-		invalidate();
+    public void snapToScreen(int whichScreen)
+    {
+        mScroller.startScroll(whichScreen, 0, 0, 0, 50);
+        invalidate();
 
-	}
+    }
 
 }

@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:background="@android:color/holo_blue_light"
         android:orientation="horizontal"
         >
@@ -14,6 +16,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
             >
@@ -32,6 +35,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:gravity="right"
             >
@@ -61,41 +65,44 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@android:color/white"
-        android:gravity="center"
-        >
+        android:layout_height="wrap_content"
+        android:background="@color/col_d9d9d9"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-        <com.example.jimmy.mvpproject.widget.HorizontialListView
-            android:id="@+id/hl_items"
-            android:layout_width="match_parent"
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tablayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:tabIndicatorColor="@android:color/holo_blue_light"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@android:color/holo_blue_light"
+            app:tabTextColor="@android:color/darker_gray">
+        </android.support.design.widget.TabLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_transform"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:background="@android:color/holo_green_light"
+            android:gravity="center"
             >
-        </com.example.jimmy.mvpproject.widget.HorizontialListView>
 
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/holo_green_light"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/vp_content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-        </android.support.v4.view.ViewPager>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:src="@mipmap/ic_plus"/>
+        </LinearLayout>
 
     </LinearLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/white"></android.support.v4.view.ViewPager>
 
 </LinearLayout>

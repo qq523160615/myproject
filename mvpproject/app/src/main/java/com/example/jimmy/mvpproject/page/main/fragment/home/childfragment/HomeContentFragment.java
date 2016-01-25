@@ -1,9 +1,12 @@
-package com.example.jimmy.mvpproject.page.main.fragment.home;
+package com.example.jimmy.mvpproject.page.main.fragment.home.childfragment;
 
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,11 +28,22 @@ import butterknife.ButterKnife;
  *
  * @author jimmy
  */
-public class HomeContentFragment extends Fragment
+public class HomeContentFragment extends Fragment implements SwipeRefreshListView.IXListViewListener
 {
 
     @Bind(R.id.slv_content)
     SwipeRefreshListView slvContent;
+
+    private Handler handler = new Handler()
+    {
+        @Override
+        public void handleMessage(Message msg)
+        {
+            super.handleMessage(msg);
+            slvContent.stopLoadMore();
+            slvContent.stopRefresh();
+        }
+    };
 
     @Nullable
     @Override
@@ -43,16 +57,16 @@ public class HomeContentFragment extends Fragment
 
     private void init()
     {
-        slvContent.setPullLoadEnable(true);
+        slvContent.setPullLoadEnable(false);
         slvContent.setPullRefreshEnable(true);
 
         List<String> stringList = new ArrayList<>();
-        for(int i = 0; i < 20; i++)
+        for (int i = 0; i < 20; i++)
         {
             stringList.add("测试");
         }
 
-        slvContent.setAdapter(new CommonAdapter<String>(getActivity(),stringList,R.layout.item_content)
+        slvContent.setAdapter(new CommonAdapter<String>(getActivity(), stringList, R.layout.item_content)
         {
             @Override
             public void convert(ViewHolder holder, String item, int position)
@@ -60,6 +74,8 @@ public class HomeContentFragment extends Fragment
 
             }
         });
+
+        slvContent.setXListViewListener(this);
     }
 
     @Override
@@ -67,5 +83,38 @@ public class HomeContentFragment extends Fragment
     {
         super.onDestroyView();
         ButterKnife.unbind(this);
+    }
+
+    @Override
+    public void onRefresh()
+    {
+        Log.e("Home","onRefresh");
+        new Thread(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                try
+                {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+                handler.sendEmptyMessage(0);
+            }
+        }).start();
+    }
+
+    @Override
+    public void onLoadMore()
+    {
+        Log.e("Home","onLoadMore");
+    }
+
+    @Override
+    public void onNetworkErrorRefresh()
+    {
+        Log.e("Home","onNetworkErrorRefresh");
     }
 }

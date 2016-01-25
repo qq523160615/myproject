@@ -1,4 +1,4 @@
-package com.example.jimmy.mvpproject.page.main.fragment;
+package com.example.jimmy.mvpproject.page.main.fragment.forum;
 
 
 import android.app.Fragment;
@@ -13,7 +13,6 @@ import butterknife.ButterKnife;
 
 
 /**
- *
  * 进吧
  *
  * @author Jimmy
@@ -27,6 +26,7 @@ public class ForumFragment extends Fragment
         ButterKnife.bind(this, view);
         return view;
     }
+
 
     @Override
     public void onDestroyView()

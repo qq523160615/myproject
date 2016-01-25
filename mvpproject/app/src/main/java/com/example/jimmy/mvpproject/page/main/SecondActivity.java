@@ -1,18 +1,19 @@
 package com.example.jimmy.mvpproject.page.main;
 
 import android.app.Activity;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.jimmy.mvpproject.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import rx.Observable;
-import rx.Observer;
-import rx.Subscriber;
+
 
 /**
  * Created by jimmy on 16/1/20.
@@ -20,31 +21,47 @@ import rx.Subscriber;
 public class SecondActivity extends Activity
 {
 
+    @Bind(R.id.animationIV)
+    ImageView animationIV;
+    @Bind(R.id.buttonA)
+    Button buttonA;
+    @Bind(R.id.buttonB)
+    Button buttonB;
+    @Bind(R.id.buttonC)
+    Button buttonC;
 
-    Observer<String> observer;
-
-    Observable observable;
+    private AnimationDrawable animationDrawable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_forum);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.activity_animation);
         ButterKnife.bind(this);
-        observer = (Observer<String>) getIntent().getExtras().get("observer");
-
-        observable = Observable.create(new Observable.OnSubscribe<String>()
-        {
-
-            @Override
-            public void call(Subscriber<? super String> subscriber)
-            {
-                subscriber.onNext("Hello");
-                subscriber.onNext("Hi");
-                subscriber.onNext("Aloha");
-                subscriber.onCompleted();
-            }
-        });
     }
 
+    @OnClick(R.id.buttonA)
+    public void btnA(View view)
+    {
+        animationIV.setImageResource(R.drawable.animation2);
+        animationDrawable = (AnimationDrawable)animationIV.getDrawable();
+        animationDrawable.setOneShot(false);
+        animationDrawable.start();
+    }
+
+    @OnClick(R.id.buttonB)
+    public void btnB(View view)
+    {
+        animationDrawable = (AnimationDrawable) animationIV.getDrawable();
+        animationDrawable.stop();
+    }
+
+    @OnClick(R.id.buttonC)
+    public void btnC(View view)
+    {
+        animationIV.setImageResource(R.drawable.animation);
+        animationDrawable = (AnimationDrawable) animationIV.getDrawable();
+        animationDrawable.start();
+    }
 }

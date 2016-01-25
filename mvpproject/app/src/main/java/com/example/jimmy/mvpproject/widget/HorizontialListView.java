@@ -160,10 +160,21 @@ public class HorizontialListView extends AdapterView<ListAdapter>
         requestLayout();
     }
 
+
     @Override
     public void setSelection(int position)
     {
- //       setSelection(position);
+        int positionX = position * this.getWidth();
+        int maxWidth = this.getChildCount() * this.getWidth();
+        if (positionX <= 0)
+        {
+            positionX = 0;
+        }
+        if (positionX > maxWidth)
+        {
+            positionX = maxWidth;
+        }
+        scrollTo(positionX);
     }
 
     private void addAndMeasureChild(final View child, int viewPos)

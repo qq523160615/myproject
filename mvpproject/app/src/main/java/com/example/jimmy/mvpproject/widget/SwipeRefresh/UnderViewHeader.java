@@ -1,6 +1,7 @@
 package com.example.jimmy.mvpproject.widget.SwipeRefresh;
 
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -38,6 +39,8 @@ public class UnderViewHeader extends LinearLayout
     public final static int STATE_NORMAL = 0;
     public final static int STATE_READY = 1;
     public final static int STATE_REFRESHING = 2;
+
+    private AnimationDrawable animationDrawable;
 
     public UnderViewHeader(Context context)
     {
@@ -79,6 +82,7 @@ public class UnderViewHeader extends LinearLayout
                 0.5f);
         mRotateDownAnim.setDuration(ROTATE_ANIM_DURATION);
         mRotateDownAnim.setFillAfter(true);
+
     }
 
     public void setState(int state)
@@ -88,8 +92,9 @@ public class UnderViewHeader extends LinearLayout
         if (state == STATE_REFRESHING)
         {    // 显示进度
             mArrowImageView.clearAnimation();
-            mArrowImageView.setVisibility(View.INVISIBLE);
-            mProgressBar.setVisibility(View.VISIBLE);
+            mArrowImageView.setImageResource(R.drawable.animation2);
+            animationDrawable = (AnimationDrawable)mArrowImageView.getDrawable();
+            animationDrawable.start();
             mHintTextView.setText(R.string.xlistview_load_data);
         }
         else

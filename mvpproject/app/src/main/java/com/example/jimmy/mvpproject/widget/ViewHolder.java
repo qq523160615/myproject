@@ -106,6 +106,13 @@ public class ViewHolder
         return this;
     }
 
+    public ViewHolder setTextColor(int viewId, int color)
+    {
+        TextView view = getView(viewId);
+        view.setTextColor(color);
+        return this;
+    }
+
     public int getPosition()
     {
         return position;

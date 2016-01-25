@@ -3,15 +3,18 @@ package com.example.jimmy.mvpproject.page.main;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.os.Build;
 import android.os.Bundle;
 
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.example.jimmy.mvpproject.R;
-import com.example.jimmy.mvpproject.page.main.fragment.ForumFragment;
+import com.example.jimmy.mvpproject.page.main.fragment.forum.ForumFragment;
 import com.example.jimmy.mvpproject.page.main.fragment.home.HomeFragment;
 import com.example.jimmy.mvpproject.page.main.fragment.MessageFragment;
 import com.example.jimmy.mvpproject.page.main.fragment.MineFragment;
@@ -62,9 +65,27 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+        {
+            setTranslucentStatus(true);
+        }
         init();
     }
 
+    private void setTranslucentStatus(boolean on)
+    {
+        Window window = getWindow();
+        WindowManager.LayoutParams params = window.getAttributes();
+        final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+        if (on)
+        {
+            params.flags |= bits;
+        } else
+        {
+            params.flags &= ~bits;
+        }
+        window.setAttributes(params);
+    }
 
     /**
      * 初始化
