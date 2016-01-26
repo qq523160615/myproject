@@ -1,25 +1,19 @@
 package com.example.jimmy.mvpproject.page.main.fragment.home;
 
-import android.app.Fragment;
-import android.graphics.Color;
+
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.PopupWindow;
-import android.widget.Toast;
+
 
 import com.example.jimmy.mvpproject.R;
-import com.example.jimmy.mvpproject.page.main.MainActivity;
 import com.example.jimmy.mvpproject.page.main.fragment.home.adapter.TabFragmentAdapter;
 import com.example.jimmy.mvpproject.page.main.fragment.home.childfragment.HomeContentFragment;
 import com.example.jimmy.mvpproject.page.main.fragment.home.popwindow.TransformPop;
-import com.example.jimmy.mvpproject.widget.ToastHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,12 +47,10 @@ public class HomeFragment extends Fragment
         for (int i = 0; i < titles.length; i++)
         {
             android.support.v4.app.Fragment fragment = new HomeContentFragment();
-            Bundle bundle = new Bundle();
-            bundle.putString("text", titles[i]);
-            fragment.setArguments(bundle);
             fragments.add(fragment);
         }
-        viewPager.setAdapter(new TabFragmentAdapter(fragments, titles, MainActivity.fm, getActivity()));
+
+        viewPager.setAdapter(new TabFragmentAdapter(fragments, titles, getChildFragmentManager(), getActivity()));
         tablayout.setupWithViewPager(viewPager);
 
         return view;

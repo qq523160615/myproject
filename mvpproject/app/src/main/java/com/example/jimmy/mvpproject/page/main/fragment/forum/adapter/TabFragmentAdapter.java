@@ -1,9 +1,7 @@
-package com.example.jimmy.mvpproject.page.main.fragment.home.adapter;
-
+package com.example.jimmy.mvpproject.page.main.fragment.forum.adapter;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
-
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
@@ -13,7 +11,7 @@ import java.util.List;
 /**
  * tabfragment适配器
  *
- * @author jimmy
+ * @author Jimmy
  */
 public class TabFragmentAdapter extends FragmentPagerAdapter
 {
