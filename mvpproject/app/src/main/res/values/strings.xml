@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">mvpproject</string>
+    <string name="app_name">仿百度贴吧</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>

@@ -92,7 +92,7 @@ public class UnderViewHeader extends LinearLayout
         if (state == STATE_REFRESHING)
         {    // 显示进度
             mArrowImageView.clearAnimation();
-            mArrowImageView.setImageResource(R.drawable.animation2);
+            mArrowImageView.setImageResource(R.drawable.animation);
             animationDrawable = (AnimationDrawable)mArrowImageView.getDrawable();
             animationDrawable.start();
             mHintTextView.setText(R.string.xlistview_load_data);
