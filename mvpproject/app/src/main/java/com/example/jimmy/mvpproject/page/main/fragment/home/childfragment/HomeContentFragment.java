@@ -24,7 +24,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * 首页子项内容
+ * 推荐
  *
  * @author jimmy
  */
@@ -52,7 +52,29 @@ public class HomeContentFragment extends Fragment implements SwipeRefreshListVie
         View view = inflater.inflate(R.layout.fragment_content, container, false);
         ButterKnife.bind(this, view);
         init();
+        Log.e("标志", "onCreateView");
         return view;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        Log.e("标志", "onCreate");
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        Log.e("标志", "onResume");
+    }
+
+    @Override
+    public void onDestroy()
+    {
+        super.onDestroy();
+        Log.e("标志", "onDestroy");
     }
 
     private void init()
@@ -88,7 +110,7 @@ public class HomeContentFragment extends Fragment implements SwipeRefreshListVie
     @Override
     public void onRefresh()
     {
-        Log.e("Home","onRefresh");
+        Log.e("Home", "onRefresh");
         new Thread(new Runnable()
         {
             @Override
@@ -109,12 +131,12 @@ public class HomeContentFragment extends Fragment implements SwipeRefreshListVie
     @Override
     public void onLoadMore()
     {
-        Log.e("Home","onLoadMore");
+        Log.e("Home", "onLoadMore");
     }
 
     @Override
     public void onNetworkErrorRefresh()
     {
-        Log.e("Home","onNetworkErrorRefresh");
+        Log.e("Home", "onNetworkErrorRefresh");
     }
 }

@@ -1,12 +1,13 @@
 package com.example.jimmy.mvpproject.page.main;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+
 import android.os.Build;
 import android.os.Bundle;
 
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -16,7 +17,7 @@ import android.widget.LinearLayout;
 import com.example.jimmy.mvpproject.R;
 import com.example.jimmy.mvpproject.page.main.fragment.forum.ForumFragment;
 import com.example.jimmy.mvpproject.page.main.fragment.home.HomeFragment;
-import com.example.jimmy.mvpproject.page.main.fragment.MessageFragment;
+import com.example.jimmy.mvpproject.page.main.fragment.message.MessageFragment;
 import com.example.jimmy.mvpproject.page.main.fragment.MineFragment;
 
 
@@ -97,7 +98,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         selectedOne(true, false, false, false);
 
         //加载邮箱默认布局
-        fragmentManager = getFragmentManager();
+        fragmentManager = getSupportFragmentManager();
         transaction = fragmentManager.beginTransaction();
         homeFragment = new HomeFragment();
         transaction.add(R.id.fl_home, homeFragment);
