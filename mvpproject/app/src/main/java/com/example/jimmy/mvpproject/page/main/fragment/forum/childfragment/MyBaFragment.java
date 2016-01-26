@@ -3,11 +3,13 @@ package com.example.jimmy.mvpproject.page.main.fragment.forum.childfragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -35,6 +37,8 @@ public class MyBaFragment extends Fragment
 {
     @Bind(R.id.content_view)
     GridView gridView;
+
+    private View convertView;
 
     @Nullable
     @Override
@@ -69,7 +73,7 @@ public class MyBaFragment extends Fragment
             @Override
             public void convert(ViewHolder holder, String item, int position)
             {
-
+                convertView = holder.getConvertView();
             }
         });
         gridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener()
@@ -79,11 +83,9 @@ public class MyBaFragment extends Fragment
             public boolean onItemLongClick(AdapterView<?> parent, View view,
                                            int position, long id)
             {
-                Toast.makeText(
-                        getActivity(),
-                        "LongClick on "
-                                + parent.getAdapter().getItemId(position),
-                        Toast.LENGTH_SHORT).show();
+                Log.e("onItemLong", "onItemLong");
+                ImageView ivQuit = (ImageView) convertView.findViewById(R.id.iv_quit_ba);
+                ivQuit.setVisibility(View.VISIBLE);
                 return true;
             }
         });

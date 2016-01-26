@@ -8,21 +8,25 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
     <item
-        android:drawable="@mipmap/icon6"
+        android:drawable="@mipmap/gif_loading1"
         android:duration="150"></item>
     <item
-        android:drawable="@mipmap/icon5"
+        android:drawable="@mipmap/gif_loading2"
         android:duration="150"></item>
     <item
-        android:drawable="@mipmap/icon4"
+        android:drawable="@mipmap/gif_loading3"
         android:duration="150"></item>
     <item
-        android:drawable="@mipmap/icon3"
+        android:drawable="@mipmap/gif_loading4"
         android:duration="150"></item>
     <item
-        android:drawable="@mipmap/icon2"
+        android:drawable="@mipmap/gif_loading5"
         android:duration="150"></item>
     <item
-        android:drawable="@mipmap/icon1"
+        android:drawable="@mipmap/gif_loading6"
+        android:duration="150"></item>
+
+    <item
+        android:drawable="@mipmap/gif_loading7"
         android:duration="150"></item>
 </animation-list>
