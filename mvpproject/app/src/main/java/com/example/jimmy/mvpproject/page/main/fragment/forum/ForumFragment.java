@@ -4,16 +4,12 @@ package com.example.jimmy.mvpproject.page.main.fragment.forum;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.jimmy.mvpproject.R;
-import com.example.jimmy.mvpproject.page.main.fragment.forum.adapter.TabFragmentAdapter;
-import com.example.jimmy.mvpproject.page.main.fragment.forum.childfragment.MyBaFragment;
-import com.example.jimmy.mvpproject.page.main.fragment.home.childfragment.HomeContentFragment;
 
 
 import java.util.ArrayList;
@@ -75,4 +71,6 @@ public class ForumFragment extends Fragment
         super.onDestroyView();
         ButterKnife.unbind(this);
     }
+
+
 }
