@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="@color/col_1c1f3c"
         android:orientation="horizontal"
         >
 
@@ -66,7 +66,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/col_d9d9d9"
+        android:background="@color/col_f2f4f8"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         >
@@ -74,10 +74,10 @@
         <android.support.design.widget.TabLayout
             android:id="@+id/tablayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:tabIndicatorColor="@android:color/holo_blue_light"
-            app:tabSelectedTextColor="@android:color/holo_blue_light"
-            app:tabTextColor="@android:color/darker_gray">
+            android:layout_height="42dp"
+            app:tabIndicatorColor="@color/col_2969ff"
+            app:tabSelectedTextColor="@color/col_2d72fe"
+            app:tabTextColor="@color/col_696b6f">
         </android.support.design.widget.TabLayout>
 
     </LinearLayout>
@@ -90,19 +90,5 @@
         android:layout_weight="1"
         android:background="@android:color/white"></android.support.v4.view.ViewPager>
 
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:gravity="center"-->
-    <!-->-->
-
-
-    <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="测试"-->
-    <!--/>-->
-
-    <!--</LinearLayout>-->
 
 </LinearLayout>

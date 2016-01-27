@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 
 import com.example.jimmy.mvpproject.R;
 import com.example.jimmy.mvpproject.page.main.fragment.home.adapter.TabFragmentAdapter;
-import com.example.jimmy.mvpproject.page.main.fragment.home.childfragment.HomeContentFragment;
 import com.example.jimmy.mvpproject.page.main.fragment.home.popwindow.TransformPop;
 
 import java.util.ArrayList;
@@ -28,8 +27,12 @@ import butterknife.OnClick;
 public class HomeFragment extends Fragment
 {
 
+    //导航栏item
     private String[] titles = new String[]{"推荐", "内涵笑话", "娱乐八卦", "秀男秀女", "福利专区", "直播", "文字控", "神奇圈子"};
 
+    private String[] className = new String[]{"HomeContentFragment", "JokeFragment", "EntertainmentFragment", "ShowFragment", "WelfareFragment", "DirectSeedingFragment", "TextLikerFragment", "MagicCircleFragment"};
+
+    //切换弹出窗
     private TransformPop transformPop;
 
     @Bind(R.id.tablayout)
@@ -42,18 +45,26 @@ public class HomeFragment extends Fragment
     {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, view);
+        initFragment();
+
+        return view;
+    }
+
+
+    private void initFragment()
+    {
+        String packageName = getActivity().getPackageName() + ".page.main.fragment.home.childfragment.";
 
         List<android.support.v4.app.Fragment> fragments = new ArrayList<android.support.v4.app.Fragment>();
         for (int i = 0; i < titles.length; i++)
         {
-            android.support.v4.app.Fragment fragment = new HomeContentFragment();
+            android.support.v4.app.Fragment fragment = Fragment.instantiate(getActivity(), packageName + className[i]);
             fragments.add(fragment);
         }
 
+
         viewPager.setAdapter(new TabFragmentAdapter(fragments, titles, getChildFragmentManager(), getActivity()));
         tablayout.setupWithViewPager(viewPager);
-
-        return view;
     }
 
 

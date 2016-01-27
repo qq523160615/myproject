@@ -52,12 +52,16 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
 
+    //首页
     private HomeFragment homeFragment;
 
+    //进吧
     private ForumFragment forumFragment;
 
+    //消息
     private MessageFragment messageFragment;
 
+    //我的
     private MineFragment mineFragment;
 
     @Override
