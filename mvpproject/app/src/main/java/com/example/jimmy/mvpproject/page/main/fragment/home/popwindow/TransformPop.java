@@ -33,8 +33,10 @@ public class TransformPop
 
     //菜单界面
     protected View popView;
+
     //在哪个view的下面
     private View view;
+
     //透明层
     private View transparentView;
 
@@ -96,6 +98,9 @@ public class TransformPop
     }
 
 
+    /**
+     * 初始化
+     */
     private void init()
     {
         gvItem = (GridView) popView.findViewById(R.id.gv_item);

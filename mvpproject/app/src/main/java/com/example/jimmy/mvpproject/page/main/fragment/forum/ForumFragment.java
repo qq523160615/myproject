@@ -38,25 +38,36 @@ public class ForumFragment extends Fragment
 
     private String[] titles = new String[]{"我的吧", "吧推荐"};
 
+    private String[] className = new String[]{"MyBaFragment", "BaRecommendationFragment"};
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View view = inflater.inflate(R.layout.fragment_forum, container, false);
         ButterKnife.bind(this, view);
 
-
-        List<android.support.v4.app.Fragment> fragments = new ArrayList<android.support.v4.app.Fragment>();
-        for (int i = 0; i < titles.length; i++)
-        {
-            android.support.v4.app.Fragment fragment = new MyBaFragment();
-            fragments.add(fragment);
-        }
-        viewPager.setAdapter(new TabFragmentAdapter(fragments, titles, getChildFragmentManager(), getActivity()));
-        tablayout.setupWithViewPager(viewPager);
+        initFragment();
 
         return view;
     }
 
+    /**
+     * 初始化fragment
+     */
+    private void initFragment()
+    {
+        String packageName = getActivity().getPackageName() + ".page.main.fragment.forum.childfragment.";
+
+        List<android.support.v4.app.Fragment> fragments = new ArrayList<android.support.v4.app.Fragment>();
+        for (int i = 0; i < titles.length; i++)
+        {
+            android.support.v4.app.Fragment fragment = Fragment.instantiate(getActivity(), packageName + className[i]);
+            fragments.add(fragment);
+        }
+
+        viewPager.setAdapter(new com.example.jimmy.mvpproject.page.main.fragment.home.adapter.TabFragmentAdapter(fragments, titles, getChildFragmentManager(), getActivity()));
+        tablayout.setupWithViewPager(viewPager);
+    }
 
     @Override
     public void onDestroyView()
