@@ -3,21 +3,16 @@ package com.example.jimmy.mvpproject.page.main.fragment.forum.childfragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.example.jimmy.mvpproject.R;
-import com.example.jimmy.mvpproject.widget.CommonAdapter;
+import com.example.jimmy.mvpproject.model.Forum;
+import com.example.jimmy.mvpproject.page.main.fragment.forum.childfragment.adapter.BaNameItemAdapter;
 import com.example.jimmy.mvpproject.widget.ToastHelper;
-import com.example.jimmy.mvpproject.widget.ViewHolder;
-import com.lzh.pulltorefresh.MyAdapter;
 import com.lzh.pulltorefresh.MyListener;
 import com.lzh.pulltorefresh.PullToRefreshLayout;
 
@@ -33,12 +28,14 @@ import butterknife.OnClick;
  *
  * @author Jimmy
  */
-public class MyBaFragment extends Fragment
+public class MyBaFragment extends Fragment implements AdapterView.OnItemClickListener
 {
     @Bind(R.id.content_view)
     GridView gridView;
 
     private View convertView;
+
+    private BaNameItemAdapter baNameItemAdapter;
 
     @Nullable
     @Override
@@ -59,48 +56,21 @@ public class MyBaFragment extends Fragment
     }
 
     /**
-     * GridView��ʼ������
+     * GridView初始化
      */
     private void initGridView()
     {
-        List<String> items = new ArrayList<String>();
+        List<Forum> items = new ArrayList<Forum>();
         for (int i = 0; i < 30; i++)
         {
-            items.add("gridview item " + i);
+            Forum forum = new Forum();
+            forum.setName("海贼王" + i);
+            forum.setLevel(i);
+            items.add(forum);
         }
-        gridView.setAdapter(new CommonAdapter<String>(getActivity(), items, R.layout.item_ba_name)
-        {
-            @Override
-            public void convert(ViewHolder holder, String item, int position)
-            {
-                convertView = holder.getConvertView();
-            }
-        });
-        gridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener()
-        {
-
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view,
-                                           int position, long id)
-            {
-                Log.e("onItemLong", "onItemLong");
-                ImageView ivQuit = (ImageView) convertView.findViewById(R.id.iv_quit_ba);
-                ivQuit.setVisibility(View.VISIBLE);
-                return true;
-            }
-        });
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id)
-            {
-                Toast.makeText(getActivity(),
-                        " Click on " + parent.getAdapter().getItemId(position),
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
+        baNameItemAdapter = new BaNameItemAdapter(getActivity(), items);
+        gridView.setAdapter(baNameItemAdapter);
+        gridView.setOnItemClickListener(this);
     }
 
     @OnClick(R.id.ll_search)
@@ -115,5 +85,14 @@ public class MyBaFragment extends Fragment
     {
         super.onDestroyView();
         ButterKnife.unbind(this);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+    {
+        baNameItemAdapter.setLongClick(true);
+        baNameItemAdapter.notifyDataSetChanged();
+
+        ToastHelper.getInstance(getActivity()).longShowMessage("长按");
     }
 }

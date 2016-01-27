@@ -20,6 +20,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 fresco:placeholderImage="@mipmap/ic_launcher"
+                fresco:roundAsCircle="true"
                 />
 
         </LinearLayout>
@@ -27,55 +28,65 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
             android:orientation="vertical"
             >
 
             <TextView
+                android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:text="贴吧名字"
+                android:textSize="14sp"
                 />
 
             <TextView
+                android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="贴吧标题贴吧标题贴吧标题贴吧标题"
+                android:textSize="17sp"
                 />
 
             <TextView
+                android:id="@+id/tv_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="贴吧内容贴吧内容贴吧内容贴吧内容贴吧内容贴吧内容贴吧内容贴吧内容贴吧内容贴吧内容贴吧内容贴吧内容贴吧内容贴吧内容"
+                android:textSize="15sp"
 
                 />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal"
                 >
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/iv_one"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
                     android:background="@android:color/holo_blue_light"
                     />
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="10dp"
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/iv_two"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginLeft="5dp"
                     android:background="@android:color/holo_blue_light"
                     />
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="10dp"
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/iv_three"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginLeft="5dp"
                     android:background="@android:color/holo_blue_light"
                     />
 
@@ -88,12 +99,14 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
+                    android:id="@+id/tv_forum_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="海贼王吧"
                     />
 
                 <TextView
+                    android:id="@+id/tv_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"

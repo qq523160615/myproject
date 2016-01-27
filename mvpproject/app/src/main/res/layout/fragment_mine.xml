@@ -1,18 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+<com.example.jimmy.mvpproject.widget.PullScrollView
+    android:id="@+id/ps_scroll_view"
+    xmlns:abndroid="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:scrollbars="none"
+    >
+
+
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@android:color/darker_gray"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@mipmap/pic_mycenter_bg_def"
+            android:layout_height="245dp"
+            android:orientation="vertical"
             >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_pull_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="-50dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/pic_mycenter_bg_def"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="20dp"
+                    android:background="@mipmap/ic_launcher"
+                    />
+
+            </FrameLayout>
 
         </LinearLayout>
 
@@ -24,56 +56,84 @@
             >
 
             <LinearLayout
+                android:id="@+id/ll_bar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
+                android:orientation="horizontal"
+
                 >
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:text="我的"
-                    android:textColor="@android:color/white"
-                    android:textSize="20sp"
-                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:text="我的"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="20dp"
+                        android:background="@mipmap/s_icon_game_n"
+                        android:clickable="true"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="10dp"
+                        android:background="@mipmap/s_icon_search_n"
+                        android:clickable="true"
+                        />
+
+                </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_loading"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:gravity="right"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone"
                 >
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="20dp"
-                    android:background="@mipmap/s_icon_game_n"
-                    android:clickable="true"
-                    />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="10dp"
-                    android:background="@mipmap/s_icon_search_n"
-                    android:clickable="true"
+                <ProgressBar
+                    android:id="@+id/pb_item_head"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="8.0dip"
                     />
 
             </LinearLayout>
-
 
         </LinearLayout>
 
     </FrameLayout>
 
 
-</LinearLayout>
+</com.example.jimmy.mvpproject.widget.PullScrollView>

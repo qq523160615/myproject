@@ -93,7 +93,15 @@ public class HomeContentFragment extends Fragment implements SwipeRefreshListVie
             @Override
             public void convert(ViewHolder holder, String item, int position)
             {
-
+                holder.setImageByUrl(R.id.iv_my_view,"http://pic2.ooopic.com/01/03/51/25b1OOOPIC19.jpg");
+                holder.setText(R.id.tv_name, "王小二");
+                holder.setText(R.id.tv_title, "预售神器积分，求大神解答");
+                holder.setText(R.id.tv_content, "大神，过来瞅瞅 发表发表感想");
+                holder.setImageByUrl(R.id.iv_one, "http://pic14.nipic.com/20110522/7411759_164157418126_2.jpg");
+                holder.setImageByUrl(R.id.iv_two, "http://pic14.nipic.com/20110522/7411759_164157418126_2.jpg");
+                holder.setImageByUrl(R.id.iv_three,"http://pic14.nipic.com/20110522/7411759_164157418126_2.jpg");
+                holder.setText(R.id.tv_forum_name, "苹果越狱吧");
+                holder.setText(R.id.tv_time,"09-28");
             }
         });
 
